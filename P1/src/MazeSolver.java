@@ -145,12 +145,13 @@ public class MazeSolver {
     public static boolean findPath(int row, int col) throws MazeSolvedException {
         // YOUR CODE HERE!
     	try {
-			if (row > maze.length || row < 0 || col > maze[0].length || col < 0) {
+			if (row > maze.length - 1 || row < 0 || col > 9 || col < 0) {
 				gui.sendStatus(CallbackInterface.SearchStatus.PATH_ILLEGAL, row, col);
 				return false;
 			}
 			else if (maze[row][col] == 'G') {
 				gui.sendStatus(CallbackInterface.SearchStatus.PATH_COMPLETE, row, col);
+				throw new MazeSolvedException();
 			}
 			else if (maze[row][col] == 'S') {
 				return false;
@@ -164,16 +165,16 @@ public class MazeSolver {
 			else if (maze[row][col] == 'L' || maze[row][col] == ' ' ) {
 				gui.sendStatus(CallbackInterface.SearchStatus.PATH_VALID, row, col);
 				
-				if (row > 0 && findPath(row - 1, col)) {
+				if (findPath(row - 1, col)) {
 					return true;
 				}
-				else if (col < maze[0].length - 1 && findPath(row, col + 1)) {
+				else if (findPath(row, col + 1)) {
 					return true;
 				}
-				else if (row < maze.length - 1 && findPath(row + 1, col)) {
+				else if (findPath(row + 1, col)) {
 					return true;
 				}
-				else if (col > 0 && findPath(row, col - 1)) {
+				else if (findPath(row, col - 1)) {
 					return true;
 				}
 				else {
@@ -183,7 +184,7 @@ public class MazeSolver {
 			}
 		} 
     	catch (MazeSolvedException e) {
-    		
+    		System.exit(0);
     	}
         return false;
     }
