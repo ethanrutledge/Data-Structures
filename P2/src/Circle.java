@@ -19,7 +19,9 @@ public class Circle extends Primitive{
 	}
 	
 	void draw(UserInterface ui) {
-		
+		ui.lineColor(color);
+		ui.fillColor(color);
+		ui.drawOval(x, y, radius, radius, isFilled);
 	}
 	
 	public Circle(int x, int y, int radius) {

@@ -20,7 +20,12 @@ public class Triangle extends Primitive{
 	}
 	
 	void draw(UserInterface ui) {
+		int[] x = {x0,x1,x2};
+		int[] y = {y0,y1,y2};
 		
+		ui.fillColor(color);
+		ui.lineColor(color);
+		ui.drawPolygon(x, y, isFilled);
 	}
 	
 	public Triangle(int x0, int y0, int x1, int y1, int x2, int y2) {

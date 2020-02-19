@@ -22,7 +22,9 @@ public class Text extends Primitive{
 	}
 	
 	void draw(UserInterface ui) {
-		
+		ui.setFont(fontName, fontSize);
+		ui.textColor(color);
+		ui.drawText(x, y, text);
 	}
 	
 	public Text(int x, int y, String text) {

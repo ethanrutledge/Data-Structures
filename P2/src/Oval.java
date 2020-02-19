@@ -19,7 +19,9 @@ public class Oval extends Primitive{
 	}
 	
 	void draw(UserInterface ui) {
-		
+		ui.lineColor(color);
+		ui.fillColor(color);
+		ui.drawOval(x, y, width, height, isFilled);
 	}
 	
 	public Oval(int x, int y, int width, int height) {

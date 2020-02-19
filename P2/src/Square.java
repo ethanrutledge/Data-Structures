@@ -20,7 +20,9 @@ public class Square  extends Primitive{
 	}
 	
 	void draw(UserInterface ui) {
-		
+		ui.lineColor(color);
+		ui.fillColor(color);
+		ui.drawRectangle(x, y, size, size, isFilled);
 	}
 	
 	public Square(int x, int y, int size) {

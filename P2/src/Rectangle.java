@@ -19,7 +19,9 @@ public class Rectangle extends Primitive{
 	}
 	
 	void draw(UserInterface ui) {
-		
+		ui.lineColor(color);
+		ui.fillColor(color);
+		ui.drawRectangle(x, y, width, height, isFilled);
 	}
 	
 	public Rectangle(int x, int y, int width, int height) {
