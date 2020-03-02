@@ -133,10 +133,16 @@ public class DrawProgram {
                     case "POLYGON":
                     	int[] xPoints = new int[Integer.parseInt(fields[3])];
                     	int[] yPoints = new int[Integer.parseInt(fields[3])];
-                    	for (int i = 0; i < xPoints.length - 1; i++) {
-                    		xPoints[i] = Integer.parseInt(fields[i + 4]);
-                    		yPoints[i] = Integer.parseInt(fields[i + 5]);
+                    	
+                    	for(int i = 0; i < Integer.parseInt(fields[3]) * 2; i++)
+                    	{
+                    		if(i % 2 == 0)
+                    			xPoints[i/2] = Integer.parseInt(fields[i + 4]);
+                    		else
+                    			yPoints[i/2] = Integer.parseInt(fields[i + 4]);
+                    		
                     	}
+                    	
                     	Polygon poly = new Polygon(xPoints, yPoints);
                     	poly.setColor(Integer.parseInt(fields[1], 16));
                     	poly.setFilled(fields[2].equals("filled"));

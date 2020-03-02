@@ -5,9 +5,10 @@
 // ethanrut@rams.colostate.edu
 
 public class RoundPrimitive extends Primitive{
-	int x,y;
-	int width,height;
+	public int x,y;
+	public int width,height;
 	
+	@Override
 	public void draw(UserInterface ui) {
 		ui.lineColor(color);
 		ui.fillColor(color);

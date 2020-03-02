@@ -3,8 +3,8 @@
  */
 public abstract class Primitive {
 	
-	int color;
-	boolean isFilled;
+	public int color;
+	public boolean isFilled;
 	
 	public void setColor(int color) {
 		this.color = color;

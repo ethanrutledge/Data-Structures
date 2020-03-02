@@ -6,10 +6,10 @@
 
 public class Text extends Primitive{
 
-	private int x,y;
-	private String text;
-	private String fontName;
-	private int fontSize;
+	public int x,y;
+	public String text;
+	public String fontName;
+	public int fontSize;
 
 	public void setFont(String fontName, int fontSize) {
 		this.fontName = fontName;

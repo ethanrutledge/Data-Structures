@@ -5,8 +5,9 @@
 // ethanrut@rams.colostate.edu
 
 public class PolygonPrimitive extends Primitive{
-	int[] xPoints, yPoints;
+	public int[] xPoints, yPoints;
 	
+	@Override
 	public void draw(UserInterface ui) {
 		ui.lineColor(color);
 		ui.fillColor(color);
