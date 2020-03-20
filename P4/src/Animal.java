@@ -89,8 +89,9 @@ public abstract class Animal {
 		// STUDENT CODE HERE
 		for (int i = 0; i < this.field.length; i++) {
 			for(int j = 0; j < this.field[0].length; j++) {
-				if (this.computeDistance(currentRow, currentCol, i, j) < this.computeDistance(currentRow, currentCol, closestRow, closestCol)) {
+				if (this.computeDistance(currentRow, currentCol, i, j) < minimum) {
 					if (this.field[i][j] == lookFor) {
+						minimum = this.computeDistance(currentRow, currentCol, i, j);
 						closestRow = i;
 						closestCol = j;
 					}
@@ -158,49 +159,43 @@ public abstract class Animal {
      */
 	private void makeMove(eMove move) {
 		// STUDENT CODE HERE
-		if(move == eMove.DOWN) {
-			this.previousRow = this.currentRow;
-			this.previousCol = this.currentCol;
-			this.currentRow++;
-		}
-		else if(move == eMove.DOWN_LEFT) {
-			this.previousCol = this.currentCol;
-			this.previousRow = this.currentRow;
-			this.currentCol--;
-			this.currentRow++;	
-		}
-		else if (move == eMove.DOWN_RIGHT) {
-			this.previousCol = this.currentCol;
-			this.previousRow = this.currentRow;
-			this.currentRow++;
-			this.currentCol++;
-		}
-		else if(move == eMove.LEFT) {
-			this.previousRow = this.currentRow;
-			this.previousCol = this.currentCol;
-			this.currentCol--;
-		}
-		else if(move == eMove.RIGHT) {
-			this.previousRow = this.currentRow;
-			this.previousCol = this.currentCol;
-			this.currentCol++;
-		}
-		else if(move == eMove.UP) {
-			this.previousRow = this.currentRow;
-			this.previousCol = this.currentCol;
-			this.currentRow--;
-		}
-		else if(move == eMove.UP_LEFT) {
-			this.previousCol = this.currentCol;
-			this.previousRow = this.currentRow;
-			this.currentCol--;
-			this.currentRow--;
-		}
-		else if(move == eMove.UP_RIGHT) {
-			this.previousCol = this.currentCol;
-			this.previousRow = this.currentRow;
-			this.currentCol++;
-			this.currentRow--;
+		previousRow = currentRow;
+		previousCol = currentCol;
+		
+		switch (move)
+		{
+			case NO_MOVE:
+				break;
+			case DOWN:
+				currentRow += 1;
+				break;
+			case DOWN_LEFT:
+				currentRow += 1;
+				currentCol -= 1;
+				break;
+			case DOWN_RIGHT:
+				currentRow += 1;
+				currentCol += 1;
+				break;
+			case LEFT:
+				currentCol -= 1;
+				break;
+			case RIGHT:
+				currentCol += 1;
+				break;
+			case UP:
+				currentRow -= 1;
+				break;
+			case UP_LEFT:
+				currentRow -= 1;
+				currentCol -= 1;
+				break;
+			case UP_RIGHT:
+				currentRow -= 1;
+				currentCol += 1;
+				break;
+			default:
+				break;
 		}
 	}
 

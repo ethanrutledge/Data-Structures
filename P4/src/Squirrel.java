@@ -76,7 +76,10 @@ public class Squirrel extends Animal {
 		else if (this.field[row][col] == 'S' || this.field[row][col] == 'D') {
 			return false;
 		}
-        return true;
+		else{
+			return true;
+		
+		}
 	}
 
 }

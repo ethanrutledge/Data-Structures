@@ -1,5 +1,3 @@
-import Animal.eMove;
-
 // Terrier.java - class for Terrier animals
 // Author: Chris Wilcox
 // Date: 10/27/2016
